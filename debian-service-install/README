@@ -12,7 +12,29 @@ Using this tool you should be able to have a regular Act.Framework application
 run in production mode unattended as long as it has already been compiled. This is
 expecially important with Node.JS applications that you are using the Target
 ZIP after you have run Gulp AND run Maven compile.
- 
+
+To build, compile and package for upload to a production server, type the
+following commands into the command line from the top-level directory of the
+project:
+
+```
+gulp
+mvn compile
+mvn package
+
+``` 
+
+Once you do this, you will find a ZIP file for download which should have
+everything you need all packaged up in it for you. It is available from:
+
+```
+~/my-application-name/target/dist/
+
+```
+That is, from the directory in which you project is contained, you can go down
+to the *target/dist* directory and find a ZIP file with your web application
+packed ready to go.
+
 
 ## Usage
 
