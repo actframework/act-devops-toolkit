@@ -1,5 +1,0 @@
-#!/bin/sh
-#DOCKER SPECIFIC PATH
-cd /usr/local/act/
-mvn clean compile
-
