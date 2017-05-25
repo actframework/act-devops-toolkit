@@ -1,11 +1,14 @@
-# Act.Framework Dcoker Deploy Tool
+# Act.Framework Docker Deploy Tool
 
 This is the experimental scripts for Act.Framework Docker
 
 Create a new directory, copy or clone in the exec.sh and `/rsrc` directory and then call `exec.sh` as follows:
 
 `-r` or `--repo` to specify full URL to repo to clone
+
+```
 example -r=https://github.com/actframework/act-demo-apps.git
+```
 
 `-p` or `--path` to specify the path inside the repo to the root of the Act.Framework project
 `example -p=helloworld`
