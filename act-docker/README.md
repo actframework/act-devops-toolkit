@@ -2,7 +2,7 @@
 
 This is the experimental scripts for Act.Framework Docker
 
-Create a new directory, copy or clone in the exec.sh and /rsrc directory and then call exec.sh as follows:
+Create a new directory, copy or clone in the exec.sh and `/rsrc` directory and then call `exec.sh` as follows:
 
 `-r` or `--repo` to specify full URL to repo to clone
 example -r=https://github.com/actframework/act-demo-apps.git
