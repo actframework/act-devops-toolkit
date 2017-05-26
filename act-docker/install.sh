@@ -77,7 +77,7 @@ fi
 TARGETPATH=${PROJECTPATH}/docker
 
 #put resource files in the docker dir as long as it has not been created before
-if [ ! -d ${TARGETPATH} ] || [ ${FORCE} == "1" ]; then
+if [[ ! -d "${TARGETPATH}" ]] || [[ ${FORCE} == "1" ]]; then
     mkdir ${TARGETPATH}
     cp ${RSRCDIR}/docker-compose.yml ${TARGETPATH}
     cp ${RSRCDIR}/Dockerfile ${TARGETPATH}
@@ -87,10 +87,10 @@ if [ ! -d ${TARGETPATH} ] || [ ${FORCE} == "1" ]; then
 
     #put docker deploy script in root of project
     cp ${RSRCDIR}/docker-deploy.sh ${PROJECTPATH}
+    echo "Installed Docker deploy tooling in ${PROJECTPATH}"
 else
     echo "Docker directory already exists. Aborting..."
     echo
 fi
-echo "Done."
 
 
