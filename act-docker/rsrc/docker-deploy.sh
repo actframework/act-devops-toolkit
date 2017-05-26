@@ -44,21 +44,29 @@ case $i in
 esac
 done
 
+echo "Working"
+echo -n "."
 #obtain the base directory to get the resources (even if we have been called from an alias)
 BASEDIR=`eval echo "$(dirname "$(readlink "$0")")"`
 if [[ "${BASEDIR}" == '.' ]]; then
     BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 fi
-
 RSRCDIR=`eval echo "${BASEDIR}/docker"`
 mkdir ${RSRCDIR}
 
+echo -n "."
 #package and unzip the distribution
 cd ${BASEDIR}
 rm -rf target/dist/*
-mvn clean package
+if[ -f "gulpfile.js"]; then
+    gulp >>${BASEDIR}/deploy.log
+fi
+echo -n "."
+mvn clean compile package >>${BASEDIR}/deploy.log
 cd target/dist
-unzip *.zip
+echo -n "."
+unzip *.zip >>${BASEDIR}/deploy.log
+echo "."
 rm *.zip 
 
 #put the docker stuff in that taregt/dist directory
@@ -67,6 +75,10 @@ cp ${RSRCDIR}/docker-compose.yml ${BASEDIR}/target/dist/docker-compose.yml
 cp ${RSRCDIR}/service.sh ${BASEDIR}/target/dist/service.sh
 cp ${RSRCDIR}/service-runner.sh ${BASEDIR}/target/dist/service-runner.sh
 cp ${RSRCDIR}/service-installer.sh ${BASEDIR}/target/dist/service-installer.sh
+
+echo "ready!"
+echo
+echo 
 
 #docker that shizzle
 echo "Composing and starting container..."

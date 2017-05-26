@@ -45,37 +45,25 @@ sudo install-startup-script.sh -p=/home/act/hello-world -s=myservicename -i
 
 ## Command Line Parameters
 
--p or --path is used to tell the service installer where the Act.Framework
+`-p` or `--path` is used to tell the service installer where the Act.Framework
 application exists on the local filesystem.
 ```
 -p=<path to code on local debian filesystem>
 
 ```
 
--s or --servicename is used to define the name of the Debian service being
+`-s` or `--servicename` is used to define the name of the Debian service being
 installed on the system (or removed from the system)
 ```
 -s=<name of the service>
 
 ```
 
--i or --install is a switch to tell the installer to install a service
-```
--i
+`-i` or `--install` is a switch to tell the installer to install a service
 
-```
+`-r` or `--remove` is a switch to tell the installer to remove a service
 
--r or --remove is a switch to tell the installer to remove a service
-```
--r
-
-```
-
--q or --query is a switch to tell the installer to simply query to see if the
+`-q` or `--query` is a switch to tell the installer to simply query to see if the
 service is actually installed
-```
--s
-
-```
 
 
